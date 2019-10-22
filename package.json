@@ -1,0 +1,23 @@
+{
+  "name": "burger",
+  "version": "1.0.0",
+  "description": "'make your own burger'",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Marielle3/burger.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Marielle3/burger/issues"
+  },
+  "homepage": "https://github.com/Marielle3/burger#readme",
+  "dependencies": {
+    "express-handlebars": "^3.1.0",
+    "mysql": "^2.17.1"
+  }
+}
