@@ -1,7 +1,9 @@
+//require a middleware function app.use() ??
 let express = require('express');
 let app = express();
 
 let PORT = process.env.PORT || 3000;
+
 
 var db = require("./models");
 
@@ -10,7 +12,7 @@ app.use(express.static("public"));
 
 // Parse application body as JSON
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(express.json()); 
 
 // Set Handlebars.
 var exphbs = require("express-handlebars");
