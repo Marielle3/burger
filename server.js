@@ -1,32 +1,25 @@
-//require a middleware function app.use() ??
-let express = require('express');
-let app = express();
+var express = require('express')
 
-let PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3000
 
+var app = express()
 
-var db = require("./models");
+app.use(express.static('public'))
 
-// Serve static content for the app from the "public" directory in the application directory.
-app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }))
 
-// Parse application body as JSON
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json()); 
+app.use(express.json())
 
-// Set Handlebars.
-var exphbs = require("express-handlebars");
+var exphbs = require('express-handlebars')
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 
-// Import routes and give the server access to them.
-var routes = require("./controllers/burgers_controller.js");
+app.set('view engine', 'handlebars')
 
-app.use(routes);
+var routes = require('./controllers/burgerController.js')
 
-// Start our server so that it can begin listening to client requests.
-app.listen(PORT, function() {
-  // Log (server-side) when our server has started
-  console.log("Server listening on: http://localhost:" + PORT);
-});
+app.use(routes)
+
+app.listen(PORT, function () {
+  console.log('Listening on http://localhost: ' + PORT)
+})
